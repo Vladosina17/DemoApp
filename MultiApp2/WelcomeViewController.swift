@@ -56,16 +56,12 @@ final class WelcomeViewController: UIViewController {
         let stack = UIStackView(arrangedSubviews: [welcomeLabel, detailsLabel, logoutButton])
         stack.axis = .vertical
         stack.spacing = 18
-        stack.translatesAutoresizingMaskIntoConstraints = false
 
-        view.addSubview(stack)
-
-        NSLayoutConstraint.activate([
-            stack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            stack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            stack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            logoutButton.heightAnchor.constraint(equalToConstant: 44)
-        ])
+        stack.placedOn(view)
+        (stack.left => view.safeAreaLayoutGuide.leftAnchor) + 20
+        (stack.right => view.safeAreaLayoutGuide.rightAnchor) - 20
+        stack.centerY => view.centerY
+        logoutButton.height => 44
     }
 
     @objc
