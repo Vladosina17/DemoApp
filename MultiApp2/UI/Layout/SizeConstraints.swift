@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ViennaShared
 
 public struct SizeConstraints {
     public var width: NSLayoutConstraint
